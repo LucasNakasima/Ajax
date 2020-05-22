@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="p-5 text-center">   
+        <button type="button" class="btn btn-primary btn-ajax">AJAX</button>
+    </div>
+    <div class="p-5 text-center name"></div>
+
+	<script>
+        $('.btn-ajax').on('click', function(){                     
+            $.get("https://server-node-example.herokuapp.com/promotios-hub", function(response){
+
+                $.each(response, function(index, obj){                
+                    $('.name').append('<p> <strong>Nome: </strong>' + obj.nome + '<strong> - Valor: </strong>' + obj.valor + '</p>');
+	            });
+            
+            });
+        });
+	</script>
+</body>
+</html> 
